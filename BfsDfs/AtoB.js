@@ -9,6 +9,7 @@ const dfs = (depth, num) => {
     result = Math.min(result, depth);
     return;
   }
+
   if (num > b) return;
   dfs(depth + 1, num * 2);
   dfs(depth + 1, Number(num.toString() + 1));
