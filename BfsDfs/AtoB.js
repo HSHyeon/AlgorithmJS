@@ -15,5 +15,4 @@ const dfs = (depth, num) => {
 };
 
 dfs(1, a);
-
 console.log(result == Infinity ? -1 : result);
