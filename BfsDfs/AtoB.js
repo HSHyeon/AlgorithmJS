@@ -1,4 +1,4 @@
-let input = require("fs").readFileSync("example.txt").toString().split(" ");
+let input = require("fs").readFileSync("file.txt").toString().split(" ");
 let result = Infinity;
 
 let a = Number(input[0]);
