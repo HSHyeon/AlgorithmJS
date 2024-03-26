@@ -1,19 +1,9 @@
-function solution() {
-  let input = require("fs")
-    .readFileSync("file.txt") //"/dev/stdin"
-    .toString()
-    .split("\n")
-    .map((val) => val.trim());
-  let [n, k] = input
-    .shift()
-    .split(" ")
-    .map((v) => +v);
+function solution(n, k) {
   let max = 200000;
-  // 1초후 x-1 or x+1
-  // 1초후 2*x
+
   let ans = new Array(max + 4).fill(0);
   let vis = new Array(max + 4).fill(0);
-  // 모든 경우의 수를 확인? ->2초 가능할듯
+
   const check = (start, end) => {
     let queue = [];
     vis[start] = 1;
@@ -41,11 +31,18 @@ function solution() {
 
   check(n, k);
 
-  console.log(vis[k] - 1); // 최단 시간 출력
-  console.log(ans[k]); // 경우의 수 출력
+  return vis[k] - 1 + " " + ans[k]; // 최단 시간 출력
 }
-
-solution();
+let input = require("fs")
+  .readFileSync("file.txt") //"/dev/stdin"
+  .toString()
+  .split("\n")
+  .map((val) => val.trim());
+let [n, k] = input
+  .shift()
+  .split(" ")
+  .map((v) => +v);
+console.log(solution(n, k));
 /*
 기존 코드 - 시간 초과
 분석해보기
