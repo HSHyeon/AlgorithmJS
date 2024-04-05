@@ -1,0 +1,14 @@
+let fs = require("fs");
+let input = fs.readFileSync("file.txt").toString().trim().split("\n");
+let T = input.shift();
+
+for (let i = 0; i < input.length; i++) {
+  let a = Number(input[i]);
+  console.log(dfs(0, a));
+}
+
+function dfs(num, a) {
+  if (num == a) return 1;
+  if (num > a) return 0;
+  return dfs(num + 1, a) + dfs(num + 2, a) + dfs(num + 3, a);
+}
